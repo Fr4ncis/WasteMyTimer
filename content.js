@@ -32,24 +32,16 @@ function updateSuggestion() {
 	$("#suggestionDom").append($img);
 	
 	$("#containerDom").animate({
-	    height: '300px'
-	  }, 2000, function() {
+	    height: '150px'
+	  }, 1000, function() {
 		  
-		  $("#containerDom").delay(2000).animate({
+		  $("#containerDom").delay(5000).animate({
 			    height: '40px'
-			  }, 5000, function() {
+			  }, 1000, function() {
 				  $("#advertImg").remove();
 			  }
 		  );
 	  });
-	
-	
-	
-	
-/*  $("#suggestionDom").fadeTo("slow", 0, function() {
-    $("#suggestionDom").html(suggestions[Math.floor(Math.random()*suggestions.length)]);
-    $("#suggestionDom").fadeTo("slow", 1);
-  });*/
 }
 
 function stringTime(seconds) {
@@ -89,12 +81,10 @@ $(document).ready(function() {
   container_dom.appendChild(suggestion_dom);
   container_dom.style.cssText = [
     'position: absolute;',
-    'width: 200px;',
+    'width: 250px;',
     'height: 40px;',
     'background-color: #000;',
     'opacity:0.8;',
-//    'padding: 0px;',
- //   'margin-bottom: 20px;',
     'top: 44px;',
     '-webkit-box-shadow: #666 3px 3px 5px 1px;',
     'box-shadow: #666 3px 3px 5px 1px;',
@@ -107,6 +97,8 @@ $(document).ready(function() {
     'position: relative;',
     'padding: 10px 10px; 10px; 10px;',
     'color: #FFF;',
+    'width: 90%;',
+    'text-align: center;',
     'text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);',
     'float: left;'
   ].join(' ');
@@ -115,6 +107,7 @@ $(document).ready(function() {
     'text-alignment: right;',
     'padding: 10px 10px; 10px; 10px;',
     'color: #FFF;',
+    'left: 10px;',
     'text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);',
     'float: right;'
   ].join(' ');
