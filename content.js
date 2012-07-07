@@ -58,21 +58,24 @@ function stringTime(seconds) {
 }
 
 $(document).ready(function() {
+//window.onload = function() {
   // Create the overlay at the top of the page and fill it with data.
   var container_dom = document.createElement('div');
   timer_dom.innerText = "Ciao";
-  suggestion_dom.innerText = "Suggestion";
+  suggestion_dom.innerText =""; "Suggestion";
   container_dom.appendChild(timer_dom);
   container_dom.appendChild(suggestion_dom);
   container_dom.style.cssText = [
     'position: absolute;',
-    'width: 400px;',
-    'height: 300px;',
+    'width: 200px;',
+    'height: 40px;',
     'background-color: #000;',
     'opacity:0.8;',
-    'padding: 0px;',
-    'margin-bottom: 20px;',
+//    'padding: 0px;',
+ //   'margin-bottom: 20px;',
     'top: 44px;',
+    '-webkit-box-shadow: #666 3px 3px 5px 1px;',
+    'box-shadow: #666 3px 3px 5px 1px;',
     'border-radius: 8px;',
     'left: 10px;',
     'font: 18px Myriad Pro;',
@@ -94,11 +97,13 @@ $(document).ready(function() {
     'float: right;'
   ].join(' ');
   document.body.style.cssText = 'position: relative';
-  document.body.parentElement.insertBefore(container_dom, document.body);
+  $('#blueBarHolder').append(container_dom);
+  //document.body.parentElement.insertBefore(container_dom, $("#pagelet_dock"));
   setInterval(updateTimer,1000);
-  $("#suggestionDom").html(suggestions[Math.floor(Math.random()*suggestions.length)]);
-  setInterval(updateSuggestion,10000);
+  //$("#suggestionDom").html(suggestions[Math.floor(Math.random()*suggestions.length)]);
+  //setInterval(updateSuggestion,10000);
   $("#blueBarHolder.slim").css("height",'0px');
+  $("#globalContainer").css("top",'29px');
   displayText("Waste My Timer");
 });
 
