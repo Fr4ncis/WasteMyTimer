@@ -25,6 +25,23 @@ function updateTimer() {
 }
 
 function updateSuggestion() {
+	
+	var $containerDom = $("#containerDom");
+	var containerHeight = $containerDom.height();
+	
+	$("#containerDom").animate({
+	    height: '300px'
+	  }, 2000, function() {
+		  
+		  var $img = $("<img src='https://dl.dropbox.com/u/357448/advertisement1.png'");
+		  $("#suggestionDom").append($img);
+		  $("#containerDom").delay(2000).animate({
+			    height: '40px'
+			  }, 5000
+		  );
+	  });
+	
+	
   $("#suggestionDom").fadeTo("slow", 0, function() {
     $("#suggestionDom").html(suggestions[Math.floor(Math.random()*suggestions.length)]);
     $("#suggestionDom").fadeTo("slow", 1);
@@ -61,6 +78,7 @@ $(document).ready(function() {
 //window.onload = function() {
   // Create the overlay at the top of the page and fill it with data.
   var container_dom = document.createElement('div');
+  container_dom.id = "containerDom";
   timer_dom.innerText = "Ciao";
   suggestion_dom.innerText =""; "Suggestion";
   container_dom.appendChild(timer_dom);
@@ -101,7 +119,7 @@ $(document).ready(function() {
   //document.body.parentElement.insertBefore(container_dom, $("#pagelet_dock"));
   setInterval(updateTimer,1000);
   //$("#suggestionDom").html(suggestions[Math.floor(Math.random()*suggestions.length)]);
-  //setInterval(updateSuggestion,10000);
+  setInterval(updateSuggestion,10000);
   $("#blueBarHolder.slim").css("height",'0px');
   $("#globalContainer").css("top",'29px');
   displayText("Waste My Timer");
