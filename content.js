@@ -28,24 +28,28 @@ function updateSuggestion() {
 	
 	var $containerDom = $("#containerDom");
 	var containerHeight = $containerDom.height();
+	var $img = $("<img id='advertImg' src='https://dl.dropbox.com/u/357448/advertisement1.png' />");
+	$("#suggestionDom").append($img);
 	
 	$("#containerDom").animate({
 	    height: '300px'
 	  }, 2000, function() {
 		  
-		  var $img = $("<img src='https://dl.dropbox.com/u/357448/advertisement1.png'");
-		  $("#suggestionDom").append($img);
 		  $("#containerDom").delay(2000).animate({
 			    height: '40px'
-			  }, 5000
+			  }, 5000, function() {
+				  $("#advertImg").remove();
+			  }
 		  );
 	  });
 	
 	
-  $("#suggestionDom").fadeTo("slow", 0, function() {
+	
+	
+/*  $("#suggestionDom").fadeTo("slow", 0, function() {
     $("#suggestionDom").html(suggestions[Math.floor(Math.random()*suggestions.length)]);
     $("#suggestionDom").fadeTo("slow", 1);
-  });
+  });*/
 }
 
 function stringTime(seconds) {
