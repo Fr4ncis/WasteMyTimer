@@ -21,7 +21,7 @@ function updateTimer() {
     timer++;
     localStorage.setItem("timer", timer);
   }
-  displayText("Time on Facebook: "+stringTime(storedTimer));
+  displayText(stringTime(storedTimer));
 }
 
 function updateSuggestion() {
@@ -65,15 +65,16 @@ $(document).ready(function() {
   container_dom.appendChild(timer_dom);
   container_dom.appendChild(suggestion_dom);
   container_dom.style.cssText = [
-    'position: relative;',
-    'width: 100%;',
-    'height: 50px;',
-    "background-image:url('https://dl.dropbox.com/u/357448/background.png');",
-    'background-repeat:repeat-x;',
-    'color: #FFF;',
+    'position: absolute;',
+    'width: 400px;',
+    'height: 300px;',
+    'background-color: #000;',
+    'opacity:0.8;',
     'padding: 0px;',
     'margin-bottom: 20px;',
-    'top: 38px;',
+    'top: 44px;',
+    'border-radius: 8px;',
+    'left: 10px;',
     'font: 18px Myriad Pro;',
     'z-index: 100;'
   ].join(' ');
