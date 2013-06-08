@@ -3,12 +3,23 @@ var suggestion_dom = document.createElement('div');
 timer_dom.id = "timerDom";
 suggestion_dom.id = "suggestionDom";
 var timer = localStorage.getItem("timer");
-var suggestions = [
-  "..you could have cleaned the house",
-  "..you could have read a book",
-  "..you could have watched a movie",
-  "..you could have drunk a coffee with friends"
-];
+var advertisementImagesUrl = [];
+
+function updateSuggestionAds()
+{
+  advertisementImagesUrl = [
+    "http://wastemytimer.fr4ncis.net/bieber.png",
+    "http://wastemytimer.fr4ncis.net/titanic.png",
+    "http://wastemytimer.fr4ncis.net/hotdogs.png",
+    "http://wastemytimer.fr4ncis.net/pumpkin.png",
+    "http://wastemytimer.fr4ncis.net/garbage.png",
+    "http://wastemytimer.fr4ncis.net/cat.png",
+    "http://wastemytimer.fr4ncis.net/mario.png",
+    "http://wastemytimer.fr4ncis.net/googleplus.png",
+    "http://wastemytimer.fr4ncis.net/bigmac.png",
+    "http://wastemytimer.fr4ncis.net/airplane.png"
+  ];
+}
 
 function displayText(string) {
   $("#timerDom").html(string);
@@ -25,17 +36,18 @@ function updateTimer() {
 }
 
 function updateSuggestion() {
-	
+	updateSuggestionAds();
 	var $containerDom = $("#containerDom");
 	var containerHeight = $containerDom.height();
-	var $img = $("<img id='advertImg' src='https://dl.dropbox.com/u/357448/advertisement1.png' />");
+	//var $adhtml = CallAdBoxTracking(404140, 1815285835, 0, 234, 60, 'B0E0E6', 'FFFFFF', '000000', '336699', '333333', '0', '', true);
+	var $img = $("<img id='advertImg' src='"+advertisementImagesUrl[Math.floor(Math.random()*advertisementImagesUrl.length)]+"' />");
 	$("#suggestionDom").append($img);
 	
 	$("#containerDom").animate({
-	    height: '150px'
+	    height: '140px'
 	  }, 1000, function() {
 		  
-		  $("#containerDom").delay(5000).animate({
+		  $("#containerDom").delay(3000).animate({
 			    height: '40px'
 			  }, 1000, function() {
 				  $("#advertImg").remove();
@@ -80,7 +92,7 @@ $(document).ready(function() {
   container_dom.appendChild(timer_dom);
   container_dom.appendChild(suggestion_dom);
   container_dom.style.cssText = [
-    'position: absolute;',
+    'position: fixed;',
     'width: 250px;',
     'height: 40px;',
     'background-color: #000;',
@@ -105,9 +117,9 @@ $(document).ready(function() {
   suggestion_dom.style.cssText = [
     'position: relative;',
     'text-alignment: right;',
-    'padding: 10px 10px; 10px; 10px;',
+    //'padding: 10px 10px; 10px; 10px;',
     'color: #FFF;',
-    'left: 10px;',
+    'left: -7px;',
     'text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);',
     'float: right;'
   ].join(' ');

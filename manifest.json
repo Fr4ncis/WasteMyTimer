@@ -1,12 +1,13 @@
 {
   "name": "WasteMyTimer",
   "version": "0.1",
+  "manifest_version": 2,
   "description": "Keep track of how much time you waste on social networks!",
   "icons": { "128": "icon.png" },
   "content_scripts": [
     {
       "matches": ["http://www.facebook.com/*","https://www.facebook.com/*"],
-      "js": ["jquery.min.js","content.js"]
+      "js": ["jquery.min.js","content.js","adbox_content.js"]
     }
   ]
 }
